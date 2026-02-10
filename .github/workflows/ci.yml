@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      WALLET_ADDRESS: 0x3D491f06BebDc91A6d402f8d52a1B5210FD5a14A
+      NETWORK: eip155:84532
+      FACILITATOR_URL: https://x402.org/facilitator
+      ALCHEMY_API_KEY: test-key
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
