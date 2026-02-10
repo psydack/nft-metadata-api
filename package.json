@@ -1,6 +1,6 @@
 {
   "name": "nft-metadata-api",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "NFT metadata API with x402 payments",
   "main": "src/index.js",
   "scripts": {
